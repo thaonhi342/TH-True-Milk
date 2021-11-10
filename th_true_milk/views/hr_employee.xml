@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+                <record id="hr_form_view_inherit" model="ir.ui.view">
+            <field name="name">hr.form.view.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="address_id" position="before">
+                <field name="code"/>
+            </field>
+            </field>
+        </record>
+        <record id="action_hr" model="ir.actions.act_window">
+            <field name="name">Nhân viên</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hr.employee</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        tao menu -->
+        <menuitem id="menu_hr_recruitment_configuration"
+                  parent="menu_all"
+                  name="Nhân viên"
+                  action="action_hr"
+                  sequence="4"/>
+    </data>
+</odoo>
